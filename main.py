@@ -1,4 +1,4 @@
-# *********
+# <*********
 # GLOBAL VARIABLES & IMPORTS
 from art import logo
 import random
@@ -11,9 +11,9 @@ computer_cards = []
 user_score = 0
 computer_score = 0
 
-# *********
+# *********/>
 
-# *********
+# <*********
 # FUNCTIONS
 
 
@@ -49,6 +49,6 @@ def game_init():
             )
 
 
-# *********
+# ********/>
 
 game_init()
