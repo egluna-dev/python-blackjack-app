@@ -34,20 +34,34 @@ def add_current_score(player_card_list):
 
 
 def compare_scores(user_score, comp_score):
-    if user_score == 21 and comp_score == 21:
-        return "You have gone over 21. You lose!\n"
-    if user_score == 0:
-        return "You have won Blackjack!\n"
+    game_outcomes = {
+        "both-over": "You have gone over 21. You lose! :p\n",
+        "draw": "It's a draw :O",
+        "user-blackjack": "You have won Blackjack!\n",
+        "comp-blackjack": "You have lost. The computer has drawn a Blackjack.\n",
+        "user-over": "You have gone over 21 and lost :(\n",
+        "comp-over": "The computer has gone over 21. You won!\n",
+        "user-greater": "You win against the computer!\n",
+        "other": "You have lost :(\n"
+    }
+
+    if user_score > 21 and comp_score > 21:
+        return game_outcomes["both-over"]
+
+    if user_score == comp_score:
+        return game_outcomes["draw"]
+    elif user_score == 0:
+        return game_outcomes["user-blackjack"]
     elif comp_score == 0:
-        return "You have lost. The computer has drawn a Blackjack.\n"
+        return game_outcomes["comp-blackjack"]
     elif user_score > 21:
-        return "You have gone over 21 and lost :(\n"
+        return game_outcomes["user-over"]
     elif comp_score > 21:
-        return "The computer has gone over 21. You won!\n"
+        return game_outcomes["comp-over"]
     elif user_score > comp_score:
-        return "You win!\n"
+        return game_outcomes["user-greater"]
     else:
-        return "You have lost :(\n"
+        return game_outcomes["other"]
 
 # Function initializes game
 
@@ -71,6 +85,12 @@ def game_init():
             program_on = False
             print("Good bye")
         elif start_game == 'y':
+            # Reset the card hands and scores after restarting game
+            user_cards = []
+            computer_cards = []
+
+            user_score = 0
+            computer_score = 0
             # Game started
             print(logo)
 
