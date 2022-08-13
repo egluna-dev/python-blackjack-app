@@ -1,4 +1,4 @@
-# *********
+# <*********
 # GLOBAL VARIABLES & IMPORTS
 from art import logo
 import random
@@ -6,9 +6,9 @@ import random
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-# *********
+# ********/>
 
-# *********
+# <*********
 # FUNCTIONS
 
 # Function returns random card from deck
@@ -17,6 +17,8 @@ cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 def draw_random_card():
     random_index = random.randint(0, len(cards) - 1)
     return cards[random_index]
+
+# Function calculates either user's or computer's current score
 
 
 def add_current_score(player_card_list):
@@ -137,5 +139,5 @@ def game_init():
             print("Please enter either 'y' or 'n'.\n")
 
 
-# *********
+# *******/>
 game_init()
